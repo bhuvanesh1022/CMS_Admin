@@ -1,0 +1,454 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Unity WebGL</title>
+
+  <!-- fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/cnm2oqa.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'css/index.min.css' %}">
+</head>
+
+<body>
+
+
+  <section class="main">
+    <div class="row">
+      <div class="main-menu">
+        <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <a class="nav-link" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab"
+            aria-controls="v-pills-1" aria-selected="true">You cannot live in an entirely white house</a>
+          <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab"
+            aria-controls="v-pills-2" aria-selected="false">A-rated movies have gratuious violance a..</a>
+          <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab"
+            aria-controls="v-pills-3" aria-selected="false">BREAKING NEWS: Animal shelters are f..</a>
+        </div>
+        <button class="add-dicision">Add decision</button>
+      </div>
+      <div class="body-wrapper">
+        <div class="tab-content" id="v-pills-tabContent">
+          <button class="btn-restart">Restart CMS</button>
+          <div class="tab-pane fade show active" id="v-pills" role="tabpanel" aria-labelledby="v-pills-0-tab">
+            <div class="row col-md-12 m-0">
+              <h3>Pick or add a decision to get started</h3>
+              </div>
+          </div>
+          <div class="tab-pane fade" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
+            <div class="row col-md-12 m-0">
+              <button class="btn-blue">Upload changes</button>
+              <button class="btn-blue">Undo changes</button>
+              <button class="btn-red">Delete decision</button>
+            </div>
+            <div class="row col-md-12 m-0">
+              <div class="col-md-4 col-xl-3 pr-0 mb-4">
+                <select class="form-control selectbox" id="exampleFormControlSelect1">
+                  <option>Chief Enforecement Officer</option>
+                  <option>Trade & Money Man</option>
+                  <option>Leader: Cult of Curriculum</option>
+                  <option>Supreme Scientist</option>
+                  <option>Explorer at Largre</option>
+                  <option>Chife Enforcement Officer</option>
+                  <option>Principal Party Planner</option>
+                  <option>The Queen</option>
+                </select>
+              </div>
+              <div class="col-md-8 col-xl-9 mb-4 position-relative">
+                <textarea class="form-control" id="text1" name="" maxlength="200"></textarea>
+                <div id="charNum1" class="textarea-char"></div>
+              </div>
+              <!--====== Choice A =======-->
+              <div class="col-md-6">
+                <div class="form-group group-blue">
+                  <label class="form-text" for="text2">Choice A</label>
+                  <div class="position-relative">
+                  <textarea class="form-control text2" name="" maxlength="125"></textarea>
+                  <div class="textarea-char charNum2"></div>
+                </div>
+                </div>
+                <div class="form-group group-blue">
+                  <div class="append-div mt-2 mb-2">
+                    <div class="d-flex mb-2">
+                      <select class="form-control selectbox" id="exampleFormControlSelect1">
+                        <option>Chief Enforecement Officer</option>
+                        <option>Trade & Money Man</option>
+                        <option>Leader: Cult of Curriculum</option>
+                      </select>
+                      <fieldset>
+                        <input type="button" value="-" class="btns decrease" />
+                        <input type="text" class="num-input" value="0" />
+                        <input type="button" value="+" class="btns increase" />
+                      </fieldset>
+                      <button class="cancel">X</button>
+                    </div>
+                  </div>
+                  <button class="add-btn" id="addBtn">Add Attribute</button>
+                </div>
+
+
+                <div class="form-group group-blue">
+                  <div class="append-div div_2">
+                    <div class="d-block mt-2 mb-4">
+                      <div class="d-flex">
+                        <select class="form-control selectbox" id="exampleFormControlSelect1">
+                          <option>Chief Enforecement Officer</option>
+                          <option>Trade & Money Man</option>
+                          <option>Leader: Cult of Curriculum</option>
+                        </select>
+                        <fieldset>
+                          <input type="button" value="-" class="btns decrease" />
+                          <input type="text" class="num-input" value="0" />
+                          <input type="button" value="+" class="btns increase" />
+                        </fieldset>
+                        <button class="cancel2">X</button>
+                      </div>
+                      <div class="position-relative">
+                      <textarea class="form-control mt-2" id="text3" name="" maxlength="125"></textarea>
+                      <div id="charNum3" class="textarea-char"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="add-btn" id="addBtn2">Add Attribute</button>
+                </div>
+              </div>
+              <!--====== Choice A END =======-->
+              <!--====== Choice B =======-->
+              <div class="col-md-6">
+                <div class="form-group group-blue">
+                  <label class="form-text" for="text2">Choice B</label>
+                  <div class="position-relative">
+                  <textarea class="form-control text2" name="" maxlength="125"></textarea>
+                  <div class="textarea-char charNum2"></div>
+                  </div>
+                </div>
+                <div class="form-group group-blue">
+                  <div class="append-div mt-2 mb-2">
+                    <div class="d-flex mb-2">
+                      <select class="form-control selectbox" id="exampleFormControlSelect1">
+                        <option>Chief Enforecement Officer</option>
+                        <option>Trade & Money Man</option>
+                        <option>Leader: Cult of Curriculum</option>
+                      </select>
+                      <fieldset>
+                        <input type="button" value="-" class="btns decrease" />
+                        <input type="text" class="num-input" value="0" />
+                        <input type="button" value="+" class="btns increase" />
+                      </fieldset>
+                      <button class="cancel">X</button>
+                    </div>
+                  </div>
+                  <button class="add-btn" id="addBtn">Add Attribute</button>
+                </div>
+
+
+                <div class="form-group group-blue">
+                  <div class="append-div div_2">
+                    <div class="d-block mt-2 mb-4">
+                      <div class="d-flex">
+                        <select class="form-control selectbox" id="exampleFormControlSelect1">
+                          <option>Chief Enforecement Officer</option>
+                          <option>Trade & Money Man</option>
+                          <option>Leader: Cult of Curriculum</option>
+                        </select>
+                        <fieldset>
+                          <input type="button" value="-" class="btns decrease" />
+                          <input type="text" class="num-input" value="0" />
+                          <input type="button" value="+" class="btns increase" />
+                        </fieldset>
+                        <button class="cancel2">X</button>
+                      </div>
+                      <div class="position-relative">
+                      <textarea class="form-control mt-2" id="text3" name="" maxlength="125"></textarea>
+                      <div id="charNum3" class="textarea-char"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="add-btn" id="addBtn2">Add Attribute</button>
+                </div>
+              </div>
+              <!--====== Choice B END =======-->
+            </div>
+
+          </div>
+          <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">
+            <div class="row col-md-12 m-0">
+              <button class="btn-blue">Upload changes</button>
+              <button class="btn-blue">Undo changes</button>
+              <button class="btn-red">Delete decision</button>
+            </div>
+            <div class="row col-md-12 m-0">
+              <div class="col-md-4 col-xl-3 pr-0 mb-4">
+                <select class="form-control selectbox" id="exampleFormControlSelect1">
+                  <option>Chief Enforecement Officer</option>
+                  <option>Trade & Money Man</option>
+                  <option>Leader: Cult of Curriculum</option>
+                  <option>Supreme Scientist</option>
+                  <option>Explorer at Largre</option>
+                  <option>Chife Enforcement Officer</option>
+                  <option>Principal Party Planner</option>
+                  <option>The Queen</option>
+                </select>
+              </div>
+              <div class="col-md-8 col-xl-9 mb-4  position-relative">
+                <textarea class="form-control" id="text1" name="" maxlength="200"></textarea>
+                <div id="charNum1" class="textarea-char"></div>
+              </div>
+              <!--====== Choice A =======-->
+              <div class="col-md-6">
+                <div class="form-group group-blue">
+                  <label class="form-text" for="text2">Choice A</label>
+                  <div class="position-relative">
+                  <textarea class="form-control text2" name="" maxlength="125"></textarea>
+                  <div class="textarea-char charNum2"></div>
+                  </div>
+                </div>
+                <div class="form-group group-blue">
+                  <div class="append-div mt-2 mb-2">
+                    <div class="d-flex mb-2">
+                      <select class="form-control selectbox" id="exampleFormControlSelect1">
+                        <option>Chief Enforecement Officer</option>
+                        <option>Trade & Money Man</option>
+                        <option>Leader: Cult of Curriculum</option>
+                      </select>
+                      <fieldset>
+                        <input type="button" value="-" class="btns decrease" />
+                        <input type="text" class="num-input" value="0" />
+                        <input type="button" value="+" class="btns increase" />
+                      </fieldset>
+                      <button class="cancel">X</button>
+                    </div>
+                  </div>
+                  <button class="add-btn" id="addBtn">Add Attribute</button>
+                </div>
+
+
+                <div class="form-group group-blue">
+                  <div class="append-div div_2">
+                    <div class="d-block mt-2 mb-4">
+                      <div class="d-flex">
+                        <select class="form-control selectbox" id="exampleFormControlSelect1">
+                          <option>Chief Enforecement Officer</option>
+                          <option>Trade & Money Man</option>
+                          <option>Leader: Cult of Curriculum</option>
+                        </select>
+                        <fieldset>
+                          <input type="button" value="-" class="btns decrease" />
+                          <input type="text" class="num-input" value="0" />
+                          <input type="button" value="+" class="btns increase" />
+                        </fieldset>
+                        <button class="cancel2">X</button>
+                      </div>
+                      <div class="position-relative">
+                      <textarea class="form-control mt-2" id="text3" name="" maxlength="125"></textarea>
+                      <div id="charNum3" class="textarea-char"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="add-btn" id="addBtn2">Add Attribute</button>
+                </div>
+              </div>
+              <!--====== Choice A END =======-->
+              <!--====== Choice B =======-->
+              <div class="col-md-6">
+                <div class="form-group group-blue">
+                  <label class="form-text" for="text2">Choice B</label>
+                  <div class="position-relative">
+                  <textarea class="form-control text2" name="" maxlength="125"></textarea>
+                  <div class="textarea-char charNum2"></div>
+                  </div>
+                </div>
+                <div class="form-group group-blue">
+                  <div class="append-div mt-2 mb-2">
+                    <div class="d-flex mb-2">
+                      <select class="form-control selectbox" id="exampleFormControlSelect1">
+                        <option>Chief Enforecement Officer</option>
+                        <option>Trade & Money Man</option>
+                        <option>Leader: Cult of Curriculum</option>
+                      </select>
+                      <fieldset>
+                        <input type="button" value="-" class="btns decrease" />
+                        <input type="text" class="num-input" value="0" />
+                        <input type="button" value="+" class="btns increase" />
+                      </fieldset>
+                      <button class="cancel">X</button>
+                    </div>
+                  </div>
+                  <button class="add-btn" id="addBtn">Add Attribute</button>
+                </div>
+
+
+                <div class="form-group group-blue">
+                  <div class="append-div div_2">
+                    <div class="d-block mt-2 mb-4">
+                      <div class="d-flex">
+                        <select class="form-control selectbox" id="exampleFormControlSelect1">
+                          <option>Chief Enforecement Officer</option>
+                          <option>Trade & Money Man</option>
+                          <option>Leader: Cult of Curriculum</option>
+                        </select>
+                        <fieldset>
+                          <input type="button" value="-" class="btns decrease" />
+                          <input type="text" class="num-input" value="0" />
+                          <input type="button" value="+" class="btns increase" />
+                        </fieldset>
+                        <button class="cancel2">X</button>
+                      </div>
+                      <div class="position-relative">
+                      <textarea class="form-control mt-2" id="text3" name="" maxlength="125"></textarea>
+                      <div id="charNum3" class="textarea-char"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="add-btn" id="addBtn2">Add Attribute</button>
+                </div>
+              </div>
+              <!--====== Choice B END =======-->
+            </div>
+          </div>
+          <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">
+            <div class="row col-md-12 m-0">
+              <button class="btn-blue">Upload changes</button>
+              <button class="btn-blue">Undo changes</button>
+              <button class="btn-red">Delete decision</button>
+            </div>
+            <div class="row col-md-12 m-0">
+              <div class="col-md-4 col-xl-3 pr-0 mb-4">
+                <select class="form-control selectbox" id="exampleFormControlSelect1">
+                  <option>Chief Enforecement Officer</option>
+                  <option>Trade & Money Man</option>
+                  <option>Leader: Cult of Curriculum</option>
+                  <option>Supreme Scientist</option>
+                  <option>Explorer at Largre</option>
+                  <option>Chife Enforcement Officer</option>
+                  <option>Principal Party Planner</option>
+                  <option>The Queen</option>
+                </select>
+              </div>
+              <div class="col-md-8 col-xl-9 mb-4 position-relative">
+                <textarea class="form-control" id="text1" name="" maxlength="200"></textarea>
+                <div id="charNum1" class="textarea-char"></div>
+              </div>
+              <!--====== Choice A =======-->
+              <div class="col-md-6">
+                <div class="form-group group-blue">
+                  <label class="form-text" for="text2">Choice A</label>
+                  <div class="position-relative">
+                  <textarea class="form-control text2" name="" maxlength="125"></textarea>
+                  <div class="textarea-char charNum2"></div>
+                  </div>
+                </div>
+                <div class="form-group group-blue">
+                  <div class="append-div mt-2 mb-2">
+                    <div class="d-flex mb-2">
+                      <select class="form-control selectbox" id="exampleFormControlSelect1">
+                        <option>Chief Enforecement Officer</option>
+                        <option>Trade & Money Man</option>
+                        <option>Leader: Cult of Curriculum</option>
+                      </select>
+                      <fieldset>
+                        <input type="button" value="-" class="btns decrease" />
+                        <input type="text" class="num-input" value="0" />
+                        <input type="button" value="+" class="btns increase" />
+                      </fieldset>
+                      <button class="cancel">X</button>
+                    </div>
+                  </div>
+                  <button class="add-btn" id="addBtn">Add Attribute</button>
+                </div>
+
+
+                <div class="form-group group-blue">
+                  <div class="append-div div_2">
+                    <div class="d-block mt-2 mb-4">
+                      <div class="d-flex">
+                        <select class="form-control selectbox" id="exampleFormControlSelect1">
+                          <option>Chief Enforecement Officer</option>
+                          <option>Trade & Money Man</option>
+                          <option>Leader: Cult of Curriculum</option>
+                        </select>
+                        <fieldset>
+                          <input type="button" value="-" class="btns decrease" />
+                          <input type="text" class="num-input" value="0" />
+                          <input type="button" value="+" class="btns increase" />
+                        </fieldset>
+                        <button class="cancel2">X</button>
+                      </div>
+                      <div class="position-relative">
+                      <textarea class="form-control mt-2" id="text3" name="" maxlength="125"></textarea>
+                      <div id="charNum3" class="textarea-char"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="add-btn" id="addBtn2">Add Attribute</button>
+                </div>
+              </div>
+              <!--====== Choice A END =======-->
+              <!--====== Choice B =======-->
+              <div class="col-md-6">
+                <div class="form-group group-blue">
+                  <label class="form-text" for="text2">Choice B</label>
+                  <div class="position-relative">
+                  <textarea class="form-control text2" name="" maxlength="125"></textarea>
+                  <div class="textarea-char charNum2"></div>
+                  </div>
+                </div>
+                <div class="form-group group-blue">
+                  <div class="append-div mt-2 mb-2">
+                    <div class="d-flex mb-2">
+                      <select class="form-control selectbox" id="exampleFormControlSelect1">
+                        <option>Chief Enforecement Officer</option>
+                        <option>Trade & Money Man</option>
+                        <option>Leader: Cult of Curriculum</option>
+                      </select>
+                      <fieldset>
+                        <input type="button" value="-" class="btns decrease" />
+                        <input type="text" class="num-input" value="0" />
+                        <input type="button" value="+" class="btns increase" />
+                      </fieldset>
+                      <button class="cancel">X</button>
+                    </div>
+                  </div>
+                  <button class="add-btn" id="addBtn">Add Attribute</button>
+                </div>
+                <div class="form-group group-blue">
+                  <div class="append-div div_2">
+                    <div class="d-block mt-2 mb-4">
+                      <div class="d-flex">
+                        <select class="form-control selectbox" id="exampleFormControlSelect1">
+                          <option>Chief Enforecement Officer</option>
+                          <option>Trade & Money Man</option>
+                          <option>Leader: Cult of Curriculum</option>
+                        </select>
+                        <fieldset>
+                          <input type="button" value="-" class="btns decrease" />
+                          <input type="text" class="num-input" value="0" />
+                          <input type="button" value="+" class="btns increase" />
+                        </fieldset>
+                        <button class="cancel2">X</button>
+                      </div>
+                      <div class="position-relative">
+                      <textarea class="form-control mt-2" id="text3" name="" maxlength="125"></textarea>
+                      <div id="charNum3" class="textarea-char"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="add-btn" id="addBtn2">Add Attribute</button>
+                </div>
+              </div>
+              <!--====== Choice B END =======-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="{% static 'js/index.min.js' %}"></script>
+</body>
+
+</html>

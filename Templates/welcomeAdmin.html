@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- META DATA -->
+  <title>10 Turn President - CMS_Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link id="favicon" rel="shortcut icon" href="favicon.ico" type="image/ico" />
+  <meta name="author" content="CloudNow Technologies">
+  <meta name="robots" content="noindex, nofollow, noodp, noydir">
+  <meta name="msnbot" content="noindex, nofollow,Block comment noodp, noydir" />
+  <meta name="GoogleBot" content="noindex, nofollow, noodp, noydir" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body,
+    html {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(225.35deg, #D23B7D 0%, #1C4EA1 100%);
+      ;
+      color: #fff;
+      text-align: center;
+    }
+
+    body {
+      line-height: 1;
+      font-size: 14px;
+      font-family: arial, sans-serif;
+    }
+
+    .error-page {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+    }
+
+    p {
+      font-size: 2.2em;
+      margin: 0 0 1.5em;
+    }
+
+    h1 {
+      font-size: 5em;
+      margin: 0 0 .2em;
+    }
+
+    .link {
+      text-align: center;
+      font-size: 1.5em;
+    }
+
+    a {
+      color: #D23B7D;
+      text-decoration: none;
+      display: inline-block;
+      margin-left: .5em;
+      transition: .25s ease-in-out;
+    }
+
+    a:hover,
+    a:focus {
+      color: #f3a224;
+    }
+
+<!--    btn{-->
+<!--      height: 5em;-->
+<!--    }-->
+
+    @media (max-width:767px) {
+      p {
+        font-size: 2em;
+        margin: 0 0 1em;
+      }
+
+      h1 {
+        font-size: 4em;
+        margin: 0 0 .15em;
+      }
+
+      .link {
+        text-align: center;
+        font-size: 1.2em;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="error-page">
+    <p>Welcome</p>
+    <h1>{{name}}</h1>
+<!--    <button class="btn" type="button" onclick="{% url 'add_decision' %}">Add New Decision</button>-->
+<!--    <button class="btn" type="button" onclick="{% url 'load_decision' %}">Load Decisions</button>-->
+    <div class="link">Click here to<a href="add_decision">Add New Decision</a></div><br>
+    <div class="link">Click here to<a href="load_decision">Load Decisions</a></div>
+  </div>
+
+</body>
+
+</html>

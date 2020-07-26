@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Registration</title>
+
+  <!-- fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/cnm2oqa.css">
+
+  <link rel="stylesheet" href="{% static 'css/login.min.css' %}">
+</head>
+
+<body>
+
+  <section class="signup-main">
+    <img src="{% static 'images/signup.jpg' %}" alt="image" class="login-background">
+    <div class="container">
+      <div class="row">
+        <div class="signup-page col-md-6 offset-md-6">
+          <div class="form">
+            <h1>Signup</h1>
+            <form class="signup-form" id="signupform" action="register" method="post" role="form" novalidate="novalidate">
+              {% csrf_token %}
+              <div class="input-main">
+              <input type="text" name="name"  id="name" placeholder="User Name"/>   
+            </div>
+            <div class="input-main">
+              <input type="email"  name="email"  id="email" placeholder="Email address"/>
+            </div>
+              <div class="input-main">
+              <input type="password"  name="pword"  id="pword" placeholder="Your Password"/>
+            </div>
+              <button type="submit" id="formSubmit" >Create</button>
+              <p class="message">Already registered? <a href="{% url 'open_login' %}">Sign In</a></p>
+            </form>           
+          </div>
+        </div>
+      </div>
+   
+    </div>
+  </section>
+
+  <script src="{% static 'js/signup.min.js' %}"></script>
+</body>
+
+</html>
