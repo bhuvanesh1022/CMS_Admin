@@ -2,54 +2,250 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BFP Admin - CMS Decisions</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+    </style>
 </head>
 <body>
-
-    <h2> All Decisions Available</h2>
+    <h2>Hi, {{name}}</h2>
+    <p>Click here to <a href="logout">Logout</a></p>
+<!--    <div><button type="button" onclick="{% url 'logout' %}">Logout</button></div>-->
+    <h3> Add A New Decision</h3>
     <form class="post-data" action="add_decision" method="post" name="Add A New Decision" novalidate="novalidate">
         {% csrf_token %}
-        <input type="text" name="id" placeholder={{ lId }} >
-        <input type="text" name="speaker" placeholder="SpeakerName"><br><br>
+        <b>Id :</b> {{data.id}} <br><br>
+        <b>Speaker :</b> {{data.sp}}<br><br>
+        <b>Decision Image :</b> {{data.desc}}<br><br>
+        <b>File Name :</b> {{data.fn}}<br><br>
+        <b>Decision :</b>
+            <p style="margin-left : 2%">{{data.dec}}</p>
+        <b>Choices :</b>
+            <p style="margin-left : 2%"><b>0 :</b> {{data.ca}}
 
-        Decision:<br>
-        <textarea name="decision" rows="3" cols="60" maxlength="250" placeholder="Decision"></textarea><br><br>
+                <table style="width: 33%; margin-left : 4%" >
+                    <caption style="text-align: left"><b>Attribute Effects</b>  </caption>
+                    <tr>
+                        <th> Name </th>
+                        <th> Type </th>
+                        <th> Value </th>
+                    </tr>
+                    <tr>
+                        <td> {{data.aa1n}} </td>
+                        <td> {{data.aa1t}} </td>
+                        <td> {{data.aa1v}} </td>
+                    </tr>
+                    <tr>
+                        <td> {{data.aa2n}} </td>
+                        <td> {{data.aa2t}} </td>
+                        <td> {{data.aa2t}} </td>
+                    </tr>
+                </table>
 
-        Choice A:<br>
-        <textarea name="choiceA" rows="2" cols="40" maxlength="125" placeholder="Choice A"></textarea><br><br>
-        Attribute 1:
-        <input name="attributeA1" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeA1_Val" type="number" maxlength="1" placeholder="Value"><br>
-        Attribute 2:
-        <input name="attributeA2" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeA2_Val" type="number" maxlength="1" placeholder="Value"><br>
-        Attribute 3:
-        <input name="attributeA3" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeA3_Val" type="number" maxlength="1" placeholder="Value"><br><br>
+                <p style="margin-left : 4%"><b>Consequences :</b>
+                    <p style="margin-left : 6%"><b>0 :</b> {{data.cac0t}}
+                        <p style="margin-left : 8%"><b>description :</b> {{data.cac0d}}
+                        <p style="margin-left : 8%"><b>filename :</b> {{data.cac0f}}
 
-        Outcome:<br>
-        <input name="outcomeA_Title" type="text" placeholder="ChoiceA's Outcome">
-        <input class="Val" name="outcomeA_Val" type="number" maxlength="1" placeholder="Value"><br>
-        <textarea name="outcomeA" rows="3" cols="30" maxlength="200" placeholder="Outcome Text"></textarea><br><br>
+                    <table style="width: 33%; margin-left : 8%" >
+                        <caption style="text-align: left"><b>Stat Effects</b>  </caption>
+                        <tr>
+                            <th> Name </th>
+                            <th> Type </th>
+                            <th> Value </th>
+                        </tr>
+                        <tr>
+                            <td> {{data.cac0s0n}} </td>
+                            <td> {{data.cac0s0t}} </td>
+                            <td> {{data.cac0s0v}} </td>
+                        </tr>
+                    </table>
 
-        Choice B:<br>
-        <textarea name="choiceB" rows="2" cols="40" maxlength="125" placeholder="Choice B"></textarea><br><br>
-        Attribute 1:
-        <input name="attributeB1" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeB1_Val" type="number" maxlength="1" placeholder="Value"><br>
-        Attribute 2:
-        <input name="attributeB2" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeB2_Val" type="number" maxlength="1" placeholder="Value"><br>
-        Attribute 3:
-        <input name="attributeB3" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeB3_Val" type="number" maxlength="1" placeholder="Value"><br><br>
+                    <p style="margin-left : 6%"><b>1 :</b> {{data.cac1t}}
+                        <p style="margin-left : 8%"><b>description :</b> {{data.cac1d}}
+                        <p style="margin-left : 8%"><b>filename :</b> {{data.cac1f}}
 
-        Outcome:<br>
-        <input name="outcomeB_Title" type="text" placeholder="ChoiceB's Outcome">
-        <input class="Val" name="outcomeB_Val" type="number" maxlength="1" placeholder="Value"><br>
-        <textarea name="outcomeB" rows="3" cols="30" maxlength="200" placeholder="Outcome Text"></textarea><br><br>
+                    <table style="width: 33%; margin-left : 8%" >
+                        <caption style="text-align: left"><b>Stat Effects</b>  </caption>
+                        <tr>
+                            <th> Name </th>
+                            <th> Type </th>
+                            <th> Value </th>
+                        </tr>
+                        <tr>
+                            <td> {{data.cac1s0n}} </td>
+                            <td> {{data.cac1s0t}} </td>
+                            <td> {{data.cac1s0v}} </td>
+                        </tr>
+                    </table>
 
-<!--        <input type="submit" value="Add Decision">-->
-    </form>
+                    <p style="margin-left : 6%"><b>2 :</b> {{data.cac2t}}
+                        <p style="margin-left : 8%"><b>description :</b> {{data.cac2d}}
+                        <p style="margin-left : 8%"><b>filename :</b> {{data.cac2f}}
+
+                    <table style="width: 33%; margin-left : 8%" >
+                        <caption style="text-align: left"><b>Stat Effects</b>  </caption>
+                        <tr>
+                            <th> Name </th>
+                            <th> Type </th>
+                            <th> Value </th>
+                        </tr>
+                        <tr>
+                            <td> {{data.cac2s0n}} </td>
+                            <td> {{data.cac2s0t}} </td>
+                            <td> {{data.cac2s0v}} </td>
+                        </tr>
+                    </table>
+
+                    <p style="margin-left : 6%"><b>3 :</b> {{data.cac3t}}
+                        <p style="margin-left : 8%"><b>description :</b> {{data.cac3d}}
+                        <p style="margin-left : 8%"><b>filename :</b> {{data.cac3f}}
+
+                    <table style="width: 33%; margin-left : 8%" >
+                        <caption style="text-align: left"><b>Stat Effects</b>  </caption>
+                        <tr>
+                            <th> Name </th>
+                            <th> Type </th>
+                            <th> Value </th>
+                        </tr>
+                        <tr>
+                            <td> {{data.cac3s0n}} </td>
+                            <td> {{data.cac3s0t}} </td>
+                            <td> {{data.cac3s0v}} </td>
+                        </tr>
+                    </table>
+<br>
+            <p style="margin-left : 2%"><b>1 :</b> {{data.cb}}
+
+                <table style="width: 33%; margin-left : 4%" >
+                    <caption style="text-align: left"><b>Attribute Effects</b>  </caption>
+                    <tr>
+                        <th> Name </th>
+                        <th> Type </th>
+                        <th> Value </th>
+                    </tr>
+                    <tr>
+                        <td> {{data.ab1n}} </td>
+                        <td> {{data.ab1t}} </td>
+                        <td> {{data.ab1v}} </td>
+                    </tr>
+                    <tr>
+                        <td> {{data.ab2n}} </td>
+                        <td> {{data.ab2t}} </td>
+                        <td> {{data.ab2t}} </td>
+                    </tr>
+                </table>
+
+                <p style="margin-left : 4%"><b>Consequences :</b>
+                    <p style="margin-left : 6%"><b>0 :</b> {{data.cbc0t}}
+                        <p style="margin-left : 8%"><b>description :</b> {{data.cbc0d}}
+                        <p style="margin-left : 8%"><b>filename :</b> {{data.cbc0f}}
+
+                    <table style="width: 33%; margin-left : 8%" >
+                        <caption style="text-align: left"><b>Stat Effects</b>  </caption>
+                        <tr>
+                            <th> Name </th>
+                            <th> Type </th>
+                            <th> Value </th>
+                        </tr>
+                        <tr>
+                            <td> {{data.cbc0s0n}} </td>
+                            <td> {{data.cbc0s0t}} </td>
+                            <td> {{data.cbc0s0v}} </td>
+                        </tr>
+                    </table>
+
+                    <p style="margin-left : 6%"><b>1 :</b> {{data.cbc1t}}
+                        <p style="margin-left : 8%"><b>description :</b> {{data.cbc1d}}
+                        <p style="margin-left : 8%"><b>filename :</b> {{data.cbc1f}}
+
+                    <table style="width: 33%; margin-left : 8%" >
+                        <caption style="text-align: left"><b>Stat Effects</b>  </caption>
+                        <tr>
+                            <th> Name </th>
+                            <th> Type </th>
+                            <th> Value </th>
+                        </tr>
+                        <tr>
+                            <td> {{data.cbc1s0n}} </td>
+                            <td> {{data.cbc1s0t}} </td>
+                            <td> {{data.cbc1s0v}} </td>
+                        </tr>
+                    </table>
+
+                    <p style="margin-left : 6%"><b>2 :</b> {{data.cbc2t}}
+                        <p style="margin-left : 8%"><b>description :</b> {{data.cbc2d}}
+                        <p style="margin-left : 8%"><b>filename :</b> {{data.cbc2f}}
+
+                    <table style="width: 33%; margin-left : 8%" >
+                        <caption style="text-align: left"><b>Stat Effects</b>  </caption>
+                        <tr>
+                            <th> Name </th>
+                            <th> Type </th>
+                            <th> Value </th>
+                        </tr>
+                        <tr>
+                            <td> {{data.cbc2s0n}} </td>
+                            <td> {{data.cbc2s0t}} </td>
+                            <td> {{data.cbc2s0v}} </td>
+                        </tr>
+                    </table>
+
+                    <p style="margin-left : 6%"><b>3 :</b> {{data.cbc3t}}
+                        <p style="margin-left : 8%"><b>description :</b> {{data.cbc3d}}
+                        <p style="margin-left : 8%"><b>filename :</b> {{data.cbc3f}}
+
+                    <table style="width: 33%; margin-left : 8%" >
+                        <caption style="text-align: left"><b>Stat Effects</b>  </caption>
+                        <tr>
+                            <th> Name </th>
+                            <th> Type </th>
+                            <th> Value </th>
+                        </tr>
+                        <tr>
+                            <td> {{data.cbc3s0n}} </td>
+                            <td> {{data.cbc3s0t}} </td>
+                            <td> {{data.cbc3s0v}} </td>
+                        </tr>
+                    </table>
+<br>
+        <b>Requirements :</b>
+        <p style="margin-left : 2%"><b>0 :</b>
+            <table style="width: 33%; margin-left : 4%" >
+                <caption style="text-align: left"><b>Check</b>  </caption>
+                <tr>
+                    <th> Name </th>
+                    <th> Type </th>
+                    <th> Value </th>
+                </tr>
+                <tr>
+                    <td> {{data.rc0n}} </td>
+                    <td> {{data.rc0t}} </td>
+                    <td> {{data.rc0v}} </td>
+                </tr>
+            </table>
+            <p style="margin-left : 4%"><b>Check Type :</b> {{data.rct0}}</p>
+
+        <p style="margin-left : 2%"><b>1 :</b>
+            <table style="width: 33%; margin-left : 4%" >
+                <caption style="text-align: left"><b>Check</b>  </caption>
+                <tr>
+                    <th> Name </th>
+                    <th> Type </th>
+                    <th> Value </th>
+                </tr>
+                <tr>
+                    <td> {{data.rc1n}} </td>
+                    <td> {{data.rc1t}} </td>
+                    <td> {{data.rc1v}} </td>
+                </tr>
+            </table>
+            <p style="margin-left : 4%"><b>Check Type :</b> {{data.rct1}}</p>
+
+    </form><br>
 </body>
 </html>

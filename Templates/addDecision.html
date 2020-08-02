@@ -2,55 +2,276 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BFP Admin - CMS Add Decisions</title>
 </head>
 <body>
     <h2>Hi, {{name}}</h2>
-
+    <p>Click here to <a href="logout">Logout</a></p>
+<!--    <div><button type="button" onclick="{% url 'logout' %}">Logout</button></div>-->
     <h3> Add A New Decision</h3>
     <form class="post-data" action="add_decision" method="post" name="Add A New Decision" novalidate="novalidate">
         {% csrf_token %}
         <input type="text" name="id" placeholder="Id">
         <input type="text" name="speaker" placeholder="SpeakerName"><br><br>
 
-        Decision:<br>
-        <textarea name="decision" rows="3" cols="60" maxlength="250" placeholder="Decision"></textarea><br><br>
+        Decision :<br><br>
+            <textarea style="margin-left: 5%" name="decision" rows="3" cols="60" maxlength="250" placeholder="Decision"></textarea><br><br>
 
-        Choice A:<br>
-        <textarea name="choiceA" rows="2" cols="40" maxlength="125" placeholder="Choice A"></textarea><br><br>
-        Attribute 1:
-        <input name="attributeA1" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeA1_Val" type="number" maxlength="1" placeholder="Value"><br>
-        Attribute 2:
-        <input name="attributeA2" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeA2_Val" type="number" maxlength="1" placeholder="Value"><br>
-        Attribute 3:
-        <input name="attributeA3" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeA3_Val" type="number" maxlength="1" placeholder="Value"><br><br>
+        Decision Image :
+            <input style="margin-left: 2%" name="description" type="text" placeholder="Description">
+            <input name="filename" type="text" placeholder="FileName"><br><br>
+<hr style="margin-left: 5%">
+        Choices:
+            <p style="margin-left: 5%" >0 : <br>
+            <textarea style="margin-left: 5%" name="choiceA" rows="2" cols="40" maxlength="125" placeholder="Choice Text"></textarea></p>
 
-        Outcome:<br>
-        <input name="outcomeA_Title" type="text" placeholder="ChoiceA's Outcome">
-        <input class="Val" name="outcomeA_Val" type="number" maxlength="1" placeholder="Value"><br>
-        <textarea name="outcomeA" rows="3" cols="30" maxlength="200" placeholder="Outcome Text"></textarea><br><br>
+            <p style="margin-left: 5%" >Attribute Effects : </p>
+                <p style="margin-left: 10%" >0 :
+                    <input style="margin-left: 2%" name="attributeA1" type="text" placeholder="Attribute">
+                    <input class="Type" name="attributeA1_Type" type="number" maxlength="1" placeholder="Type">
+                    <input class="Val" name="attributeA1_Val" type="number" maxlength="1" placeholder="Value"></p>
 
-        Choice B:<br>
-        <textarea name="choiceB" rows="2" cols="40" maxlength="125" placeholder="Choice B"></textarea><br><br>
-        Attribute 1:
-        <input name="attributeB1" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeB1_Val" type="number" maxlength="1" placeholder="Value"><br>
-        Attribute 2:
-        <input name="attributeB2" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeB2_Val" type="number" maxlength="1" placeholder="Value"><br>
-        Attribute 3:
-        <input name="attributeB3" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeB3_Val" type="number" maxlength="1" placeholder="Value"><br><br>
+                <p style="margin-left: 10%" >1 :
+                <input style="margin-left: 2%" name="attributeA2" type="text" placeholder="Attribute">
+                    <input class="Type" name="attributeA2_Type" type="number" maxlength="1" placeholder="Type">
+                    <input class="Val" name="attributeA2_Val" type="number" maxlength="1" placeholder="Value"></p>
 
-        Outcome:<br>
-        <input name="outcomeB_Title" type="text" placeholder="ChoiceB's Outcome">
-        <input class="Val" name="outcomeB_Val" type="number" maxlength="1" placeholder="Value"><br>
-        <textarea name="outcomeB" rows="3" cols="30" maxlength="200" placeholder="Outcome Text"></textarea><br><br>
+            <p style="margin-left: 5%" >Consequences : </p>
+                <p style="margin-left: 10%" >0 :<br>
+                    <textarea style="margin-left: 5%" name="conA0" rows="2" cols="30" maxlength="200" placeholder="Consequence Text"></textarea></p>
+
+                    <p style="margin-left: 15%" >Consequence Image :
+                        <input style="margin-left: 2%" name="conA0des" type="text" placeholder="Description">
+                        <input name="conA0fn" type="text" placeholder="FileName"><br></p>
+
+                    <p style="margin-left: 15%" >Stat Effects : <br>
+                        <p style="margin-left: 20%" >0 :
+                            <input style="margin-left: 2%" name="conA0S0n" type="text" placeholder="Name">
+                            <input name="conA0S0t" type="number" placeholder="Type">
+                            <input name="conA0S0v" type="number" placeholder="Value"><br></p>
+<!--                        <p style="margin-left: 20%" >1 :-->
+<!--                            <input style="margin-left: 2%" name="conA0S1n" type="text" placeholder="Name">-->
+<!--                            <input name="conA0S1t" type="number" placeholder="Type">-->
+<!--                            <input name="conA0S1v" type="number" placeholder="Value"><br></p>-->
+<!--                        <p style="margin-left: 20%" >2 :-->
+<!--                            <input style="margin-left: 2%" name="conA0S2n" type="text" placeholder="Name">-->
+<!--                            <input name="conA0S2t" type="number" placeholder="Type">-->
+<!--                            <input name="conA0S2v" type="number" placeholder="Value"><br></p>-->
+<!--                        <p style="margin-left: 20%" >3 :-->
+<!--                            <input style="margin-left: 2%" name="conA0S3n" type="text" placeholder="Name">-->
+<!--                            <input name="conA0S3t" type="number" placeholder="Type">-->
+<!--                            <input name="conA0S3v" type="number" placeholder="Value"><br></p>-->
+
+                <p style="margin-left: 10%" >1 :<br>
+                    <textarea style="margin-left: 5%" name="conA1" rows="2" cols="30" maxlength="200" placeholder="Consequence Text"></textarea></p>
+
+                    <p style="margin-left: 15%" >Consequence Image :
+                        <input style="margin-left: 2%" name="conA1des" type="text" placeholder="Description">
+                        <input name="conA1fn" type="text" placeholder="FileName"><br></p>
+
+                    <p style="margin-left: 15%" >Stat Effects : <br>
+                        <p style="margin-left: 20%" >0 :
+                            <input style="margin-left: 2%" name="conA1S0n" type="text" placeholder="Name">
+                            <input name="conA1S0t" type="number" placeholder="Type">
+                            <input name="conA1S0v" type="number" placeholder="Value"><br></p>
+<!--                        <p style="margin-left: 20%" >1 :-->
+<!--                            <input style="margin-left: 2%" name="conA1S1n" type="text" placeholder="Name">-->
+<!--                            <input name="conA1S1t" type="number" placeholder="Type">-->
+<!--                            <input name="conA1S1v" type="number" placeholder="Value"><br></p>-->
+<!--                        <p style="margin-left: 20%" >2 :-->
+<!--                            <input style="margin-left: 2%" name="conA1S2n" type="text" placeholder="Name">-->
+<!--                            <input name="conA1S2t" type="number" placeholder="Type">-->
+<!--                            <input name="conA1S2v" type="number" placeholder="Value"><br></p>-->
+<!--                        <p style="margin-left: 20%" >3 :-->
+<!--                            <input style="margin-left: 2%" name="conA1S3n" type="text" placeholder="Name">-->
+<!--                            <input name="conA1S3t" type="number" placeholder="Type">-->
+<!--                            <input name="conA1S3v" type="number" placeholder="Value"><br></p>-->
+
+                <p style="margin-left: 10%" >2 :<br>
+                    <textarea style="margin-left: 5%" name="conA2" rows="2" cols="30" maxlength="200" placeholder="Consequence Text"></textarea></p>
+
+                    <p style="margin-left: 15%" >Consequence Image :
+                        <input style="margin-left: 2%" name="conA2des" type="text" placeholder="Description">
+                        <input name="conA2fn" type="text" placeholder="FileName"><br></p>
+
+                    <p style="margin-left: 15%" >Stat Effects : <br>
+                        <p style="margin-left: 20%" >0 :
+                            <input style="margin-left: 2%" name="conA2S0n" type="text" placeholder="Name">
+                            <input name="conA2S0t" type="number" placeholder="Type">
+                            <input name="conA2S0v" type="number" placeholder="Value"><br></p>
+<!--                        <p style="margin-left: 20%" >1 :-->
+<!--                            <input style="margin-left: 2%" name="conA2S1n" type="text" placeholder="Name">-->
+<!--                            <input name="conA2S1t" type="number" placeholder="Type">-->
+<!--                            <input name="conA2S1v" type="number" placeholder="Value"><br></p>-->
+<!--                        <p style="margin-left: 20%" >2 :-->
+<!--                            <input style="margin-left: 2%" name="conA2S2n" type="text" placeholder="Name">-->
+<!--                            <input name="conA2S2t" type="number" placeholder="Type">-->
+<!--                            <input name="conA2S2v" type="number" placeholder="Value"><br></p>-->
+<!--                        <p style="margin-left: 20%" >3 :-->
+<!--                            <input style="margin-left: 2%" name="conA2S3n" type="text" placeholder="Name">-->
+<!--                            <input name="conA2S3t" type="number" placeholder="Type">-->
+<!--                            <input name="conA2S3v" type="number" placeholder="Value"><br></p>-->
+
+                <p style="margin-left: 10%" >3 :<br>
+                    <textarea style="margin-left: 5%" name="conA3" rows="2" cols="30" maxlength="200" placeholder="Consequence Text"></textarea></p>
+
+                    <p style="margin-left: 15%" >Consequence Image :
+                        <input style="margin-left: 2%" name="conA3des" type="text" placeholder="Description">
+                        <input name="conA3fn" type="text" placeholder="FileName"><br></p>
+
+                    <p style="margin-left: 15%" >Stat Effects : <br>
+                        <p style="margin-left: 20%" >0 :
+                            <input style="margin-left: 2%" name="conA3S0n" type="text" placeholder="Name">
+                            <input name="conA3S0t" type="number" placeholder="Type">
+                            <input name="conA3S0v" type="number" placeholder="Value"><br></p>
+<!--                        <p style="margin-left: 20%" >1 :-->
+<!--                            <input style="margin-left: 2%" name="conA3S1n" type="text" placeholder="Name">-->
+<!--                            <input name="conA3S1t" type="number" placeholder="Type">-->
+<!--                            <input name="conA3S1v" type="number" placeholder="Value"><br></p>-->
+<!--                        <p style="margin-left: 20%" >2 :-->
+<!--                            <input style="margin-left: 2%" name="conA3S2n" type="text" placeholder="Name">-->
+<!--                            <input name="conA3S2t" type="number" placeholder="Type">-->
+<!--                            <input name="conA3S2v" type="number" placeholder="Value"><br></p>-->
+<!--                        <p style="margin-left: 20%" >3 :-->
+<!--                            <input style="margin-left: 2%" name="conA3S3n" type="text" placeholder="Name">-->
+<!--                            <input name="conA3S3t" type="number" placeholder="Type">-->
+<!--                            <input name="conA3S3v" type="number" placeholder="Value"><br></p>-->
+
+<hr style="margin-left: 5%">
+            <p style="margin-left: 5%" >1 : <br>
+            <textarea style="margin-left: 5%" name="choiceB" rows="2" cols="40" maxlength="125" placeholder="Choice Text"></textarea></p>
+
+            <p style="margin-left: 5%" >Attribute Effects : </p>
+                <p style="margin-left: 10%" >0 :
+                    <input style="margin-left: 3%" name="attributeB1" type="text" placeholder="Attribute">
+                    <input class="Type" name="attributeB1_Type" type="number" maxlength="1" placeholder="Type">
+                    <input class="Val" name="attributeB1_Val" type="number" maxlength="1" placeholder="Value"></p>
+
+                <p style="margin-left: 10%" >1 :
+                <input style="margin-left: 3%" name="attributeB2" type="text" placeholder="Attribute">
+                    <input class="Type" name="attributeB2_Type" type="number" maxlength="1" placeholder="Type">
+                    <input class="Val" name="attributeB2_Val" type="number" maxlength="1" placeholder="Value"></p>
+
+            <p style="margin-left: 5%" >Consequences : </p>
+                <p style="margin-left: 10%" >0 :<br>
+                    <textarea style="margin-left: 5%" name="conB0" rows="2" cols="30" maxlength="200" placeholder="Consequence Text"></textarea></p>
+
+                    <p style="margin-left: 15%" >Consequence Image :
+                        <input style="margin-left: 2%" name="conB0des" type="text" placeholder="Description">
+                        <input name="conB0fn" type="text" placeholder="FileName"><br></p>
+
+                    <p style="margin-left: 15%" >Stat Effects : <br>
+                        <p style="margin-left: 20%" >0 :
+                            <input style="margin-left: 2%" name="conB0S1n" type="text" placeholder="Name">
+                            <input name="conB0S1t" type="number" placeholder="Type">
+                            <input name="conB0S1v" type="number" placeholder="Value"><br></p>
+<!--                        <p style="margin-left: 20%" >1 :-->
+<!--                            <input style="margin-left: 2%" name="conB0S2n" type="text" placeholder="Name">-->
+<!--                            <input name="conB0S2t" type="number" placeholder="Type">-->
+<!--                            <input name="conB0S2v" type="number" placeholder="Value"><br></p>-->
+<!--                        <p style="margin-left: 20%" >2 :-->
+<!--                            <input style="margin-left: 2%" name="conB0S3n" type="text" placeholder="Name">-->
+<!--                            <input name="conB0S3t" type="number" placeholder="Type">-->
+<!--                            <input name="conB0S3v" type="number" placeholder="Value"><br></p>-->
+<!--                        <p style="margin-left: 20%" >3 :-->
+<!--                            <input style="margin-left: 2%" name="conB0S4n" type="text" placeholder="Name">-->
+<!--                            <input name="conB0S4t" type="number" placeholder="Type">-->
+<!--                            <input name="conB0S4v" type="number" placeholder="Value"><br></p>-->
+
+                <p style="margin-left: 10%" >1 :<br>
+                    <textarea style="margin-left: 5%" name="conB1" rows="2" cols="30" maxlength="200" placeholder="Consequence Text"></textarea></p>
+
+                    <p style="margin-left: 15%" >Consequence Image :
+                        <input style="margin-left: 2%" name="conB1des" type="text" placeholder="Description">
+                        <input name="conB1fn" type="text" placeholder="FileName"><br></p>
+
+                    <p style="margin-left: 15%" >Stat Effects : <br>
+                        <p style="margin-left: 20%" >0 :
+                            <input style="margin-left: 2%" name="conB1S1n" type="text" placeholder="Name">
+                            <input name="conB1S1t" type="number" placeholder="Type">
+                            <input name="conB1S1v" type="number" placeholder="Value"><br></p>
+<!--                        <p style="margin-left: 20%" >1 :-->
+<!--                            <input style="margin-left: 2%" name="conB1S2n" type="text" placeholder="Name">-->
+<!--                            <input name="conB1S2t" type="number" placeholder="Type">-->
+<!--                            <input name="conB1S2v" type="number" placeholder="Value"><br></p>-->
+<!--                        <p style="margin-left: 20%" >2 :-->
+<!--                            <input style="margin-left: 2%" name="conB1S3n" type="text" placeholder="Name">-->
+<!--                            <input name="conB1S3t" type="number" placeholder="Type">-->
+<!--                            <input name="conB1S3v" type="number" placeholder="Value"><br></p>-->
+<!--                        <p style="margin-left: 20%" >3 :-->
+<!--                            <input style="margin-left: 2%" name="conB1S4n" type="text" placeholder="Name">-->
+<!--                            <input name="conB1S4t" type="number" placeholder="Type">-->
+<!--                            <input name="conB1S4v" type="number" placeholder="Value"><br></p>-->
+
+                <p style="margin-left: 10%" >2 :<br>
+                    <textarea style="margin-left: 5%" name="conB2" rows="2" cols="30" maxlength="200" placeholder="Consequence Text"></textarea></p>
+
+                    <p style="margin-left: 15%" >Consequence Image :
+                        <input style="margin-left: 2%" name="conB2des" type="text" placeholder="Description">
+                        <input name="conB2fn" type="text" placeholder="FileName"><br></p>
+
+                    <p style="margin-left: 15%" >Stat Effects : <br>
+                        <p style="margin-left: 20%" >0 :
+                            <input style="margin-left: 2%" name="conB2S1n" type="text" placeholder="Name">
+                            <input name="conB2S1t" type="number" placeholder="Type">
+                            <input name="conB2S1v" type="number" placeholder="Value"><br></p>
+<!--                        <p style="margin-left: 20%" >1 :-->
+<!--                            <input style="margin-left: 2%" name="conB2S2n" type="text" placeholder="Name">-->
+<!--                            <input name="conB2S2t" type="number" placeholder="Type">-->
+<!--                            <input name="conB2S2v" type="number" placeholder="Value"><br></p>-->
+<!--                        <p style="margin-left: 20%" >2 :-->
+<!--                            <input style="margin-left: 2%" name="conB2S3n" type="text" placeholder="Name">-->
+<!--                            <input name="conB2S3t" type="number" placeholder="Type">-->
+<!--                            <input name="conB2S3v" type="number" placeholder="Value"><br></p>-->
+<!--                        <p style="margin-left: 20%" >3 :-->
+<!--                            <input style="margin-left: 2%" name="conB2S4n" type="text" placeholder="Name">-->
+<!--                            <input name="conB2S4t" type="number" placeholder="Type">-->
+<!--                            <input name="conB2S4v" type="number" placeholder="Value"><br></p>-->
+
+                <p style="margin-left: 10%" >3 :<br>
+                    <textarea style="margin-left: 5%" name="conB3" rows="2" cols="30" maxlength="200" placeholder="Consequence Text"></textarea></p>
+
+                    <p style="margin-left: 15%" >Consequence Image :
+                        <input style="margin-left: 2%" name="conB3des" type="text" placeholder="Description">
+                        <input name="conB3fn" type="text" placeholder="FileName"><br></p>
+
+                    <p style="margin-left: 15%" >Stat Effects : <br>
+                        <p style="margin-left: 20%" >0 :
+                            <input style="margin-left: 2%" name="conB3S1n" type="text" placeholder="Name">
+                            <input name="conB3S1t" type="number" placeholder="Type">
+                            <input name="conB3S1v" type="number" placeholder="Value"><br></p>
+<!--                        <p style="margin-left: 20%" >1 :-->
+<!--                            <input style="margin-left: 2%" name="conB3S2n" type="text" placeholder="Name">-->
+<!--                            <input name="conB3S2t" type="number" placeholder="Type">-->
+<!--                            <input name="conB3S2v" type="number" placeholder="Value"><br></p>-->
+<!--                        <p style="margin-left: 20%" >2 :-->
+<!--                            <input style="margin-left: 2%" name="conB3S3n" type="text" placeholder="Name">-->
+<!--                            <input name="conB3S3t" type="number" placeholder="Type">-->
+<!--                            <input name="conB3S3v" type="number" placeholder="Value"><br></p>-->
+<!--                        <p style="margin-left: 20%" >3 :-->
+<!--                            <input style="margin-left: 2%" name="conB3S4n" type="text" placeholder="Name">-->
+<!--                            <input name="conB3S4t" type="number" placeholder="Type">-->
+<!--                            <input name="conB3S4v" type="number" placeholder="Value"><br></p>-->
+<hr style="margin-left: 5%">
+        Requirements : <br>
+            <p style="margin-left: 5%" >0 :
+                <p style="margin-left: 10%" >Check :
+                    <input style="margin-left: 2%" name="r0n" type="text" placeholder="Name">
+                    <input name="r0t" type="number" placeholder="Type">
+                    <input name="r0v" type="number" placeholder="Value"></p>
+                <input style="margin-left: 10%" name="rct0" type="number" placeholder="Check Type">
+            <p style="margin-left: 5%" >1 :
+                <p style="margin-left: 10%" >Check :
+                    <input style="margin-left: 2%" name="r1n" type="text" placeholder="Name">
+                    <input name="r1t" type="number" placeholder="Type">
+                    <input name="r1v" type="number" placeholder="Value"></p>
+                <input style="margin-left: 10%" name="rct1" type="number" placeholder="Check Type">
+
+        <br><br>
 
         <input type="submit" value="Add Decision">
-    </form>
+    </form><br>
+
 </body>
 </html>
