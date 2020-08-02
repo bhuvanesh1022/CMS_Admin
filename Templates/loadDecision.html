@@ -2,54 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BFP Admin - CMS Decisions</title>
 </head>
 <body>
-
+    <h2>Hi, {{name}}</h2>
+    <p>Click here to <a href="logout">Logout</a></p>
+    <div class="link">Click here to<a href="add_decision">Add New Decision</a></div>
     <h2> All Decisions Available</h2>
-    <form class="post-data" action="add_decision" method="post" name="Add A New Decision" novalidate="novalidate">
-        {% csrf_token %}
-        <input type="text" name="id" placeholder={{ lId }} >
-        <input type="text" name="speaker" placeholder="SpeakerName"><br><br>
+    {% csrf_token%}
+    {% for id, decision in comb_ls %}
 
-        Decision:<br>
-        <textarea name="decision" rows="3" cols="60" maxlength="250" placeholder="Decision"></textarea><br><br>
+    ID: {{id}}<br>Decision : <a href="show_decision/{{id}}">{{decision}}</a><br><br>
 
-        Choice A:<br>
-        <textarea name="choiceA" rows="2" cols="40" maxlength="125" placeholder="Choice A"></textarea><br><br>
-        Attribute 1:
-        <input name="attributeA1" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeA1_Val" type="number" maxlength="1" placeholder="Value"><br>
-        Attribute 2:
-        <input name="attributeA2" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeA2_Val" type="number" maxlength="1" placeholder="Value"><br>
-        Attribute 3:
-        <input name="attributeA3" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeA3_Val" type="number" maxlength="1" placeholder="Value"><br><br>
+    {% endfor %}
 
-        Outcome:<br>
-        <input name="outcomeA_Title" type="text" placeholder="ChoiceA's Outcome">
-        <input class="Val" name="outcomeA_Val" type="number" maxlength="1" placeholder="Value"><br>
-        <textarea name="outcomeA" rows="3" cols="30" maxlength="200" placeholder="Outcome Text"></textarea><br><br>
-
-        Choice B:<br>
-        <textarea name="choiceB" rows="2" cols="40" maxlength="125" placeholder="Choice B"></textarea><br><br>
-        Attribute 1:
-        <input name="attributeB1" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeB1_Val" type="number" maxlength="1" placeholder="Value"><br>
-        Attribute 2:
-        <input name="attributeB2" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeB2_Val" type="number" maxlength="1" placeholder="Value"><br>
-        Attribute 3:
-        <input name="attributeB3" type="text" placeholder="Attribute">
-        <input class="Val" name="attributeB3_Val" type="number" maxlength="1" placeholder="Value"><br><br>
-
-        Outcome:<br>
-        <input name="outcomeB_Title" type="text" placeholder="ChoiceB's Outcome">
-        <input class="Val" name="outcomeB_Val" type="number" maxlength="1" placeholder="Value"><br>
-        <textarea name="outcomeB" rows="3" cols="30" maxlength="200" placeholder="Outcome Text"></textarea><br><br>
-
-<!--        <input type="submit" value="Add Decision">-->
-    </form>
 </body>
 </html>
